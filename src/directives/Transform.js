@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-Vue.directive('meu-transform', {
+export default {
 
     bind(el, binding, vnode) {
         let current = 0;
@@ -18,4 +18,4 @@ Vue.directive('meu-transform', {
             if (binding.modifiers.animate) this.style.transition = "transform 0.5s" ;
         });
     }
-});
+};
