@@ -61,5 +61,9 @@ export default {
   /* .slide-fade-leave-active for <2.1.8 */ {
     transform: translateY(-20px);
     opacity: 0;
-}
+  }
+  .painel-conteudo {
+    overflow : hidden;
+  }
+
 </style>
