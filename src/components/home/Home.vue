@@ -3,6 +3,7 @@
 
   <div>
     <h1 class="centralizado">{{ titulo }}</h1>
+    <p v-show="mensagem" class="centralizado">{{ mensagem }}</p>
     <input type="search" v-on:input="filtro=$event.target.value" class="input-busca" />
     <ul class="lista-fotos">
       <li v-for="foto of fotosComFiltro" class="lista-fotos-item">
@@ -44,7 +45,8 @@ directives: {
     return {
       titulo: 'Alurapic',
       fotos: [],
-      filtro: ""
+      filtro: "",
+      mensagem: ""
     }
  },
 
@@ -67,7 +69,16 @@ directives: {
 
  methods : {
    remover($event, foto) {
-      alert($event + " Remover foto: " + foto.titulo);
+      this.$http.delete(`http://localhost:3000/v1/fotos/${foto._id}`)
+      .then(() => { 
+          let indice = this.fotos.indexOf(foto);
+          this.fotos.splice(indice, 1);
+          this.mensagem = "Foto removida com sucesso!";
+        }, err => {
+        console.log(err);
+        this.mensagem = "Não foi possível remover a foto"
+      });
+      
    }
  }
 
