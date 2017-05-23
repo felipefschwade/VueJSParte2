@@ -13,7 +13,7 @@
     components: { 'meu-painel' : Navegacao },
       data() {
         return {
-          routes
+          routes : routes.filter(rota => rota.menu)
         }
       }
   }
