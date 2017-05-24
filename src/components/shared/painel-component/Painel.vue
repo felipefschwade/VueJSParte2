@@ -6,7 +6,8 @@
             <transition  name="painel-fade">
               <div class="painel-conteudo" v-show="visivel">
                <slot name="imagem"></slot>
-               <slot name="botao"></slot>
+               <slot name="botaoAltera"></slot>
+               <slot name="botaoExclui"></slot>
               </div>
             </transition >
         </div>

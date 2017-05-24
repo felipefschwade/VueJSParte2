@@ -16,4 +16,11 @@ export default class FotoService {
             .query()
             .then(res => res.json());
     }
+
+    buscaPorId(id) {
+        return this._resource
+            .get({ id })
+            .then(res => res.json());        
+    }
+
 }

@@ -1,11 +1,14 @@
 <template>
+
   <div class="corpo">
     <meu-painel :rotas="routes"></meu-painel>
     <transition name="pagina">
       <router-view></router-view>
     </transition>
   </div>
+
 </template>
+
 <script>
   import { routes } from './routes';
   import Navegacao from './components/shared/navegacao/Navegacao.vue'
