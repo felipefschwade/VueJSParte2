@@ -15,7 +15,7 @@ export default class FotoService {
         if (foto._id) {
             return this._resource.update({ id : foto._id}, foto);
         }
-        return this._resource.save(this.foto);
+        return this._resource.save(foto);
     }
 
     lista() {
