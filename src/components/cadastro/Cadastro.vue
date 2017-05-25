@@ -2,6 +2,8 @@
 
   <div>
     <h1 class="centralizado">Cadastro</h1>
+    <h2 v-if="foto._id" class="centralizado">Alterando</h2>
+    <h2 v-else class="centralizado">Inserindo</h2>
     <h2 class="centralizado">{{ foto.titulo }}</h2>
     <imagem-responsiva v-show="foto.url" :url="foto.url" :titulo="foto.titulo"/>
 
@@ -64,7 +66,10 @@ export default {
       grava() {
         this.service
         .cadastra(this.foto)
-        .then(() => this.foto = new Foto(), err => console.log(err));
+        .then(() => {
+          this.$router.push({name : 'home'});
+          this.foto = new Foto();
+        } , err => console.log(err));
       }
   }
 

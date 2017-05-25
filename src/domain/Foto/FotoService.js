@@ -8,7 +8,10 @@ export default class FotoService {
     }
 
     cadastra(foto) {
-       return this._resource.save(this.foto);
+        if (foto._id) {
+            return this._resource.update({ id : foto._id}, foto);
+        }
+        return this._resource.save(this.foto);
     }
 
     lista() {
